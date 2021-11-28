@@ -1,0 +1,41 @@
+{
+  "name": "gh-action-bump-version-plus",
+  "description": "An extended `gh-action-bump-version` GitHub Action",
+  "version": "2.0.3",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mhillerstrom/gh-action-bump-version-plus.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mhillerstrom/gh-action-bump-version-plus/issues"
+  },
+  "homepage": "https://github.com/mhillerstrom/gh-action-bump-version-plus#readme",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "npm run end-to-end-test",
+    "end-to-end-test-old": "jest --roots=tests/end-to-end --testTimeout=300000 --runInBand --detectOpenHandles",
+    "end-to-end-test": "jest --roots=tests/end-to-end --testTimeout=300000",
+    "clean": "rm -rf packages node_modules lerna.json"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^27.0.1",
+    "dotenv": "^10.0.0",
+    "execa": "^5.1.1",
+    "jest": "^25.5.4",
+    "js-yaml": "^4.1.0",
+    "ncp": "^2.0.0",
+    "node-fetch": "^2.6.1",
+    "prettier": "^2.3.0",
+    "standard": "^14.3.3",
+    "tiny-glob": "^0.2.9"
+  },
+  "directories": {
+    "test": "tests"
+  }
+}

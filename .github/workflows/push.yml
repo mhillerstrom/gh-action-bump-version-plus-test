@@ -1,0 +1,19 @@
+name: Bump Version (Target Branch)
+'on':
+  push: null
+jobs:
+  bump-version:
+    runs-on: ubuntu-latest
+    steps:
+      - run: env
+      - run: echo "GITHUB_REF_NAME = $GITHUB_REF_NAME"
+      - run: echo "GITHUB_REF = $GITHUB_REF"
+      - uses: actions/checkout@v2
+      - run: echo "Bump Version (Target Branch)"
+      - id: version-bump
+        if: ( ! contains(github.ref.name, 'dependabot'))
+        uses: ./action
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          target-branch: other-branch

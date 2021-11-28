@@ -1,6 +1,11 @@
 name: Bump Version (Target Branch)
 'on':
-  push: null
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 jobs:
   bump-version:
     runs-on: ubuntu-latest
@@ -11,9 +16,8 @@ jobs:
       - uses: actions/checkout@v2
       - run: echo "Bump Version (Target Branch)"
       - id: version-bump
+        # We only want to bump if the branch we are merging from is not a 'Dependabot' branch
         if: ( ! contains(github.ref.name, 'dependabot'))
         uses: ./action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          target-branch: other-branch

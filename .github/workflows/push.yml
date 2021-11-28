@@ -10,9 +10,8 @@ jobs:
       - run: echo "GITHUB_REF = $GITHUB_REF"
       - uses: actions/checkout@v2
       - run: echo "Bump Version (Target Branch)"
-        if: ( ! contains(github.ref.name, 'dependabot'))
-      - run: git branch other-branch
       - id: version-bump
+        if: ( ! contains(github.ref.name, 'dependabot'))
         uses: ./action
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
